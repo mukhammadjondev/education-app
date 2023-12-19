@@ -1,0 +1,6 @@
+import { ReactNode } from "react";
+
+export interface TextProps {
+  size?: 'sm' | 'md' | 'lg';
+  children: ReactNode;
+}
