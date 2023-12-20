@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Heading, Tag, Text } from "../components";
+import { Button, Heading, Input, Tag, Text, TextArea } from "../components";
 
 export default function Index() {
   const [isClicked, setIsClicked] = useState(false)
@@ -17,6 +17,10 @@ export default function Index() {
         Arrow
       </Button>
       <Button appearance="ghost" arrow="down">Down</Button>
+      <br />
+      <Input placeholder="Enter" />
+      <br />
+      <TextArea placeholder="Message" />
     </>
   )
 }
