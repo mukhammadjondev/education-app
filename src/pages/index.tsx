@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Button, Heading, Input, Tag, Text, TextArea } from "../components";
+import { Button, Card, Heading, Input, Rating, Tag, Text, TextArea } from "../components";
 
 export default function Index() {
   const [isClicked, setIsClicked] = useState(false)
+  const [rating, setRating] = useState<number>(3)
 
   return (
     <>
@@ -19,8 +20,20 @@ export default function Index() {
       <Button appearance="ghost" arrow="down">Down</Button>
       <br />
       <Input placeholder="Enter" />
+      <div>
+        <TextArea placeholder="Message" />
+      </div>
+
       <br />
-      <TextArea placeholder="Message" />
+      <Rating rating={rating} isEditabled={true} setRating={setRating} />
+
+      <Card color="white" style={{marginTop: '30px'}}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolores pariatur nemo corrupti voluptatum esse vero saepe, provident, at incidunt quod natus ipsum quis deserunt ipsam repudiandae voluptatibus culpa dolor.
+      </Card>
+
+      <Card color="primary" style={{marginTop: '30px'}}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolores pariatur nemo corrupti voluptatum esse vero saepe, provident, at incidunt quod natus ipsum quis deserunt ipsam repudiandae voluptatibus culpa dolor.
+      </Card>
     </>
   )
 }
