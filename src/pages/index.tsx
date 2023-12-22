@@ -5,7 +5,7 @@ import axios from "axios";
 import { withLayout } from "../layout/layout";
 import { MenuItem } from "../interfaces/menu.interface";
 
-const Index = ({firstCategory, menu}: HomeProps): JSX.Element => {
+const Index = (): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false)
   const [rating, setRating] = useState<number>(3)
 
