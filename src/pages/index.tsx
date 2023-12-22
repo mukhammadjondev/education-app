@@ -3,8 +3,9 @@ import { useState } from "react";
 import { Button, Card, Heading, Input, Rating, Tag, Text, TextArea } from "../components";
 import axios from "axios";
 import { withLayout } from "../layout/layout";
+import { MenuItem } from "../interfaces/menu.interface";
 
-const Index = () => {
+const Index = ({firstCategory, menu}: HomeProps): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false)
   const [rating, setRating] = useState<number>(3)
 
@@ -43,12 +44,19 @@ const Index = () => {
 
 export default withLayout(Index)
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const {data} = await axios.post(`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`, {firstCategory: 0})
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  const firstCategory = 0
+  const {data: menu} = await axios.post<MenuItem[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`, {firstCategory})
 
   return {
     props: {
-      data,
+      menu,
+      firstCategory,
     }
   }
+}
+
+interface HomeProps extends Record<string, unknown> {
+  firstCategory: number
+  menu: MenuItem[]
 }
