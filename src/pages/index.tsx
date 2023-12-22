@@ -1,7 +1,10 @@
+import { GetServerSideProps } from "next";
 import { useState } from "react";
 import { Button, Card, Heading, Input, Rating, Tag, Text, TextArea } from "../components";
+import axios from "axios";
+import { withLayout } from "../layout/layout";
 
-export default function Index() {
+const Index = () => {
   const [isClicked, setIsClicked] = useState(false)
   const [rating, setRating] = useState<number>(3)
 
@@ -36,4 +39,16 @@ export default function Index() {
       </Card>
     </>
   )
+}
+
+export default withLayout(Index)
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const {data} = await axios.post(`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`, {firstCategory: 0})
+
+  return {
+    props: {
+      data,
+    }
+  }
 }
