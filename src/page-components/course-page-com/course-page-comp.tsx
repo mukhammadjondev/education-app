@@ -1,7 +1,6 @@
 import { CoursePageComponentProps } from "./course-page-comp.props"
 import styles from "./course-page-com.module.css"
-import cn from "classnames"
-import { Advantages, Heading, HhData, Tag, Text } from "@/src/components"
+import { Advantages, Heading, HhData, Product, Tag, Text } from "@/src/components"
 
 const CoursePageComponent = ({firsrCategory, page, products}: CoursePageComponentProps): JSX.Element => {
   return (
@@ -13,7 +12,9 @@ const CoursePageComponent = ({firsrCategory, page, products}: CoursePageComponen
       </div>
 
       {/* PRODUCTS */}
-      <div>PRODUCTS</div>
+      <div>{products && products.map((product, idx) => (
+        <Product product={product} key={idx} />
+      ))}</div>
 
       {/* VACATIONS */}
       <div className={styles.hhTitle}>

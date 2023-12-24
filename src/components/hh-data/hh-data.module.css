@@ -44,7 +44,8 @@
   font-weight: bold;
   font-size: 26px;
   line-height: 30px;
-  margin-top: 10px;
+  margin-bottom: 10px;
+  opacity: 0.7;
 }
 
 .rate {
