@@ -1,18 +1,27 @@
 import { CoursePageComponentProps } from "./course-page-comp.props"
 import styles from "./course-page-com.module.css"
 import { Advantages, Heading, HhData, Product, Sort, Tag, Text } from "@/src/components"
+import { useReducer } from "react"
+import { sortReducer } from "./sort.reducer"
+import { SortEnum } from "@/src/components/sort/sort.props"
 
-const CoursePageComponent = ({firsrCategory, page, products}: CoursePageComponentProps): JSX.Element => {
+const CoursePageComponent = ({page, products}: CoursePageComponentProps): JSX.Element => {
+  const [state, dispatch] = useReducer(sortReducer, {sort: SortEnum.Rating, products: products})
+
+  const setSort = (sort: SortEnum) => {
+    dispatch({type: sort})
+  }
+
   return (
     <div className={styles.wrapper}>
       {/* TITLE */}
       <div className={styles.title}>
         <Heading tag="h1">{page.title}</Heading>
-        <Sort />
+        <Sort sort={state.sort} setSort={setSort} />
       </div>
 
       {/* PRODUCTS */}
-      <div>{products && products.map((product, idx) => (
+      <div>{state.products && state.products.map((product, idx) => (
         <Product product={product} key={idx} />
       ))}</div>
 
