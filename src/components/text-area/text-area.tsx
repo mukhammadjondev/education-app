@@ -4,7 +4,6 @@ import { TextAreaProps } from './text-area.props'
 import { ForwardedRef, forwardRef } from 'react'
 
 const TextArea = forwardRef(({className, error, ...props}: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>): JSX.Element => {
-  console.log(error)
   return (
     <div className={cn(styles.textAreaWrapper, className)}>
       <textarea className={cn(styles.textArea, {
