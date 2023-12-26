@@ -42,14 +42,6 @@
   border: 1px solid #e5e5e5;
 }
 
-.secondLevelBlock {
-  display: none;
-}
-
-.secondLevelBlockActive {
-  display: block;
-}
-
 .thirdLevel {
   display: block;
   margin-bottom: 10px;
