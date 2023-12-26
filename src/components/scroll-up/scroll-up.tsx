@@ -1,7 +1,7 @@
 import styles from "./scroll-up.module.css"
-import UpIcon from "./up.svg"
 import { motion } from "framer-motion"
 import { useScrollY } from "@/src/hooks/useScrollY"
+import IconButton from "../icon-button/icon-button"
 
 const ScrollUp = () => {
   const scrollY = useScrollY()
@@ -18,10 +18,10 @@ const ScrollUp = () => {
   }
 
   return (
-    scrollY > 200 && (
-      <motion.button className={styles.scrollUp} onClick={scrollToTop} {...animations}>
-        <UpIcon />
-      </motion.button>
+    scrollY > 150 && (
+      <motion.div className={styles.scrollUp} {...animations}>
+        <IconButton icon='up' appearance="primary" onClick={scrollToTop} />
+      </motion.div>
     )
   )
 }

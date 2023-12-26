@@ -146,18 +146,6 @@
 	padding: 30px;
 }
 
-.opened {
-	overflow: hidden;
-	max-height: auto;
-	padding: 30px;
-}
-
-.closed {
-	max-height: 0;
-	padding: 0;
-	overflow: hidden;
-}
-
 @media screen and (max-width: 1330px) {
   .product {
 		grid-template-columns: 70px 30px auto 30px auto 35px 1fr;

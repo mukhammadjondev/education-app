@@ -24,6 +24,17 @@ const Product = motion( forwardRef(({product, className, ...props}: ProductProps
     reviewRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'})
   }
 
+  const variants = {
+    visible: {
+      opacity: 1,
+      height: 'auto',
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
+    }
+  }
+
   return (
     <div className={className} ref={ref} {...props}>
       <Card className={styles.product}>
@@ -97,18 +108,17 @@ const Product = motion( forwardRef(({product, className, ...props}: ProductProps
         </div>
       </Card>
 
-      <Card color="white" className={cn(styles.review, {
-        [styles.opened]: reviewOpen,
-        [styles.closed]: !reviewOpen,
-      })} ref={reviewRef}>
-        {product.reviews.map(review => (
-          <div key={review._id}>
-            <Review review={review} />
-            <Divider />
-          </div>
-        ))}
-        <ReviewForm productId={product._id} />
-      </Card>
+      <motion.div animate={reviewOpen ? 'visible' : 'hidden'} variants={variants} initial={'hidden'}>
+        <Card color="white" className={cn(styles.reviews)} ref={reviewRef}>
+          {product.reviews.map(review => (
+            <div key={review._id}>
+              <Review review={review} />
+              <Divider />
+            </div>
+          ))}
+          <ReviewForm productId={product._id} />
+        </Card>
+      </motion.div>
     </div>
   )
 }))
