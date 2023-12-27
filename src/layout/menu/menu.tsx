@@ -9,7 +9,7 @@ import { useRouter } from "next/router"
 import { motion } from "framer-motion"
 
 const Menu = (): JSX.Element => {
-  const {menu, firstCategory, setMenu} = useContext(AppContext)
+  const {menu, firstCategory, setMenu, toggleMenu} = useContext(AppContext)
   const router = useRouter()
 
   const variants = {
@@ -93,8 +93,8 @@ const Menu = (): JSX.Element => {
 
   const buildThirdLevel = (pages: PageItem[], route: string) => {
     return pages.map(p => (
-      <motion.div variants={variantsChildren}>
-        <Link key={p._id} href={`/${route}/${p._id}`} className={cn(styles.thirdLevel, {
+      <motion.div variants={variantsChildren} key={p._id}>
+        <Link href={`/${route}/${p._id}`} onClick={toggleMenu} className={cn(styles.thirdLevel, {
           [styles.thirdLevelActive]: `/${route}/${p._id}` === router.asPath,
         })}>
           {p.title}
