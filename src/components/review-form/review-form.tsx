@@ -9,7 +9,8 @@ import Input from "../input/input"
 import Rating from "../rating/rating"
 import TextArea from "../text-area/text-area"
 import Button from "../button/button"
-import CloseIcon from "./close.svg"
+import Success from "./success"
+import Error from "./error"
 
 const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Element => {
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
@@ -66,20 +67,9 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
         </div>
       </div>
 
-      {isSuccess && (
-        <div className={cn(styles.success, styles.panel)}>
-          <div className={styles.panelTitle}>Review sent successfully</div>
-          <div>Thanks your review will published after testing</div>
-          <CloseIcon className={styles.close} onClick={() => setIsSuccess(false)} />
-        </div>
-      )}
+      {isSuccess && <Success setIsSuccess={setIsSuccess} />}
 
-      {error && (
-        <div className={cn(styles.error, styles.panel)}>
-          <div className={styles.panelTitle}>Something went wrong</div>
-          <CloseIcon className={styles.close}  onClick={() => setError(false)} />
-        </div>
-      )}
+      {error && <Error setError={setError} />}
     </form>
   )
 }

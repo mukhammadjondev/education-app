@@ -8,7 +8,7 @@ const HhData = ({count, juniorSalary, middleSalary, seniorSalary}: HhDataProps):
   return (
     <div className={styles.hh}>
       <Card className={styles.count}>
-        <div className={styles.title}>All Vacations</div>
+        <div className={styles.title}>All Vacancies</div>
         <div className={styles.countValue}>{count}</div>
       </Card>
 
