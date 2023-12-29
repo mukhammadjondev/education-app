@@ -68,6 +68,14 @@
   transition: all 0.2s ease;
 }
 
+.success svg {
+	fill: var(--white);
+}
+
+.success:hover svg {
+	fill: var(--green);
+}
+
 .primary svg,
 .ghost:hover svg {
   fill: var(--white)
