@@ -1,14 +1,19 @@
 import { firstLevelMenu } from "@/src/helpers/constants"
-import { IFirstLevelMenu, MenuItem } from "@/src/interfaces/menu.interface"
+import { MenuItem } from "@/src/interfaces/menu.interface"
 import { PageModel } from "@/src/interfaces/page.interface"
 import { ProductModel } from "@/src/interfaces/product.interface"
 import { withLayout } from "@/src/layout/layout"
+import Seo from "@/src/layout/seo/seo"
 import { CoursePageComponent } from "@/src/page-components"
 import axios from "axios"
 import { GetServerSideProps } from "next"
 
 const Index = ({products, firstCategory, page}: PageProps) => {
-  return <CoursePageComponent products={products} page={page} firsrCategory={firstCategory} />
+  return (
+    <Seo metaTitle={page.title} metaDescription={page.description} metaKeyword={page.tags.toString()}>
+      <CoursePageComponent products={products} page={page} firsrCategory={firstCategory} />
+    </Seo>
+  )
 }
 
 export default withLayout(Index)
