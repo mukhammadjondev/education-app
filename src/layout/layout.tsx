@@ -15,7 +15,7 @@ const Layout = ({children}: LayoutProps) => {
       <Sidebar className={styles.sidebar} />
       <div className={styles.body}>{children}</div>
       <Footer className={styles.footer} />
-      {/* @ts-expect-error */}
+      {/* @ts-ignore */}
       <ScrollUp />
     </div>
   )

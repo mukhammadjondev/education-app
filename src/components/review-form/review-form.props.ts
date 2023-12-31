@@ -5,9 +5,9 @@ export interface ReviewFormProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
 }
 
 export interface SuccessProps {
-  setIsSuccess?: Dispatch<SetStateAction<boolean>>
+  setIsSuccess: Dispatch<SetStateAction<boolean>>
 }
 
 export interface ErrorProps {
-  setError?: Dispatch<SetStateAction<boolean>>
+  setError: Dispatch<SetStateAction<boolean>>
 }
