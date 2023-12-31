@@ -66,7 +66,7 @@ const HomePageComponent = () => {
 				</div>
 			</div>
 
-      {/* @ts-ignore */}
+      {/* @ts-expect-error */}
       <ScrollUp />
       <Footer />
     </div>
